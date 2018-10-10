@@ -1,22 +1,41 @@
-from flask import Flask
+#!flask/bin/python
+from flask import Flask, jsonify, abort, make_response
 
 app = Flask(__name__)
 
+tasks = [
+    {
+        'id': 1,
+        'title': u'Buy groceries',
+        'description': u'Milk, Cheese, Pizza, Fruit, Tylenol',
+        'done': False
+    },
+    {
+        'id': 2,
+        'title': u'Learn Python',
+        'description': u'Need to find a good Python tutorial on the web',
+        'done': False
+    }
+]
+
+@app.route('/todo/api/v1.0/tasks', methods=['GET'])
+def get_tasks():
+    return jsonify({'tasks': tasks})
+
 @app.route('/')
 def index():
-    return 'This is the homepage!'
+    return "Hello, World!"
 
-@app.route('/test')
-def test():
-    return '<h2>It\'s a test !</h2>'
+@app.route('/todo/api/v1.0/tasks/<int:task_id>', methods=['GET'])
+def get_task(task_id):
+    task = [task for task in tasks if task['id'] == task_id]
+    if len(task) == 0:
+        abort(404)
+    return jsonify({'task': task[0]})
 
-@app.route('/profile/<username>')
-def profile(username):
-    return '<h1>Welcome %s</h1>' % username
+@app.errorhandler(404)
+def not_found(error):
+    return make_response(jsonify({'error': 'Not found'}), 404)
 
-@app.route('/post/<int:post_id>')
-def show_post(post_id):
-    return '<h1>Post ID is %s</h1>' % post_id
-
-if __name__ == "__main__":
-    apt.run(debug = True)
+if __name__ == '__main__':
+    app.run(debug=True)
