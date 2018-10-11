@@ -1,0 +1,49 @@
+{
+  "boutons":
+  {
+    "Menu":
+    {
+      "id":1,
+      "text":"menu",
+      "children":
+      {
+        "Option A":
+        {
+          "id": 2,
+          "text": "enfant 1",
+          "children":
+          {
+            "Choix A":
+            {
+              "id": 4,
+              "text": "enfant 1.1"
+            },
+            "Choix B":
+            {
+              "id": 5,
+              "text": "enfant 1.2"
+            }
+          }
+        },
+        "Option B":
+        {
+          "id":3,
+          "text": "enfant 2",
+          "children":
+          {
+            "Choix A":
+            {
+              "id": 6,
+              "text": "enfant 2.1"
+            },
+            "Choix B":
+            {
+              "id": 7,
+              "text": "enfant 2.2"
+            }
+          }
+        }
+      }
+    }
+  }
+}
