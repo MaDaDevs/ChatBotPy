@@ -1,49 +1,57 @@
 {
   "boutons":
   {
-    "Menu":
+    "bouton_menu":
     {
-      "id":1,
-      "text":"menu",
-      "children":
+      "type" : "button_tap",
+      "payload":
       {
-        "Option A":
-        {
-          "id": 2,
-          "text": "enfant 1",
-          "children":
-          {
-            "Choix A":
-            {
-              "id": 4,
-              "text": "enfant 1.1"
-            },
-            "Choix B":
-            {
-              "id": 5,
-              "text": "enfant 1.2"
-            }
-          }
-        },
-        "Option B":
-        {
-          "id":3,
-          "text": "enfant 2",
-          "children":
-          {
-            "Choix A":
-            {
-              "id": 6,
-              "text": "enfant 2.1"
-            },
-            "Choix B":
-            {
-              "id": 7,
-              "text": "enfant 2.2"
-            }
-          }
-        }
-      }
+		"button_id" : 1
+	  }
+    },
+    "bouton_option_A":
+    {
+      "id": 2,
+      "parent_id": 1,
+      "text": "l'option a",
+      "titre": "Option A"
+    },
+    "bouton_option_B":
+    {
+      "id": 3,
+      "parent_id": 1,
+      "text": "l'option b",
+      "titre": "Option B"
+    },
+    "bouton_choix_A":
+    {
+      "id" : 4,
+      "parent_id": 2,
+      "text": "choix a",
+      "titre": "Choix A"
+    },
+    "bouton_choix_B":
+    {
+      "id" : 5,
+      "parent_id": 2,
+      "text": "choix b",
+      "titre": "Choix B"
+    },
+    "bouton_choix_C":
+    {
+      "id" : 6,
+      "parent_id": 3,
+      "text": "choix c",
+      "titre": "Choix C"
+    },
+    "bouton_choix_D":
+    {
+      "id" : 7,
+      "parent_id": 3,
+      "text": "choix d",
+      "titre": "Choix D"
     }
   }
 }
+
+
