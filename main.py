@@ -74,6 +74,11 @@ erreurType = {
     "error": "not a valid type"
 }
 
+bye = {
+    "text" : "See ya soon !"
+}
+
+
 @app.route('/login', methods = ['POST'])
 def get_login():
     token = hashlib.md5()
@@ -82,7 +87,6 @@ def get_login():
     object = {}
     object["str_token"] = t
     token_manager.append(object)
-    print(object)
     return json.dumps(object)
 
 
@@ -105,7 +109,7 @@ def actions():
             data = user_data["boutons"]["bouton_menu"]
             return json.dumps(data)
         else:
-            return json.dumps(messageToken)
+            return json.dumps(message)
 
     elif request.json["type"] == "button_tap" and request.json["payload"] :
 
@@ -113,6 +117,8 @@ def actions():
         for j in user_data["boutons"]:
             if "parent_id" in user_data["boutons"][j] and user_data["boutons"][j]["parent_id"] == id:
                 tab.append(user_data["boutons"][j])
+        if not tab:
+            return json.dumps(bye)
         return json.dumps(tab)
 
     else:
