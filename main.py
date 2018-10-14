@@ -89,12 +89,9 @@ def get_login():
 @authToken.verify_token
 def verify_token(token):
     for t in token_manager:
-        print("str_token" in t and t["str_token"] == token)
-        print(token_manager)
         if "str_token" in t and t["str_token"] == token:
             return True
-        else:
-            return False
+    return False
 
 
 @app.route('/actions', methods=['POST'])
