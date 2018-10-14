@@ -50,6 +50,13 @@
       "parent_id": 3,
       "text": "choix d",
       "titre": "Choix D"
+    },
+    "bouton_choix_E":
+    {
+      "id" : 8,
+      "parent_id": 3,
+      "text": "choix e",
+      "titre": "Choix E"
     }
   }
 }

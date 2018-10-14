@@ -14,15 +14,6 @@ auth = HTTPBasicAuth()
 authToken = HTTPTokenAuth(scheme='Token')
 
 
-def get_token():
-    min_char = 8
-    max_char = 12
-    allchar = string.ascii_letters + string.punctuation + string.digits
-    token = "".join(choice(allchar) for x in range(randint(min_char, max_char)))
-    tokenJson = {"token": token}
-    return tokenJson
-
-
 @auth.get_password
 def get_password(username):
     if username == 'miguel':
@@ -44,21 +35,6 @@ def not_found(error):
 def not_found(error):
     return make_response(jsonify({'error': 'Not found'}), 404)
 
-
-tasks = [
-    {
-        'id': 1,
-        'title': u'Buy groceries',
-        'description': u'Milk, Cheese, Pizza, Fruit, Tylenol',
-        'done': False
-    },
-    {
-        'id': 2,
-        'title': u'Learn Python',
-        'description': u'Need to find a good Python tutorial on the web',
-        'done': False
-    }
-]
 
 token_manager = [
     {
@@ -126,6 +102,31 @@ def actions():
         return json.dumps(erreurType)
 
 
+# tasks = [
+#     {
+#         'id': 1,
+#         'title': u'Buy groceries',
+#         'description': u'Milk, Cheese, Pizza, Fruit, Tylenol',
+#         'done': False
+#     },
+#     {
+#         'id': 2,
+#         'title': u'Learn Python',
+#         'description': u'Need to find a good Python tutorial on the web',
+#         'done': False
+#     }
+# ]
+# 
+# 
+# def get_token():
+#     min_char = 8
+#     max_char = 12
+#     allchar = string.ascii_letters + string.punctuation + string.digits
+#     token = "".join(choice(allchar) for x in range(randint(min_char, max_char)))
+#     tokenJson = {"token": token}
+#     return tokenJson
+#
+#
 # def make_public_task(task):
 #     new_task = {}
 #     for field in task:
